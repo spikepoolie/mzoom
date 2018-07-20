@@ -1,0 +1,97 @@
+<div class="content">
+  <!--Navbar-->
+  <header *ngIf="isLoginRoute()">
+    <mdb-navbar SideClass="navbar navbar-expand-lg fixed-top scrolling-navbar navbar-dark deep-purple" #myNavbar>
+      <br>
+      <!-- Navbar brand -->
+      <logo>
+        <a class="navbar-brand" href="#">
+        <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" alt="">
+    </a>
+      </logo>
+
+      <!-- Collapsible content -->
+      <links>
+
+        <!-- Links -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item" routerLinkActive="active" style="margin:0px 8px 0px 8px;">
+            <a href="javascript:void(0);" class="nav-link waves-light" routerLink="login" mdbRippleRadius>
+              <!-- <i class="fa fa-check-square navbaricons" aria-hidden="true"></i> -->
+              <span class="navbaritem">Login</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" style="margin:0px 8px 0px 8px;">
+            <a href="javascript:void(0);" class="nav-link waves-light" routerLink="createcontent" mdbRippleRadius>
+              <!-- <i class="fa fa-check-square navbaricons" aria-hidden="true"></i> -->
+              <span class="navbaritem">Create</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" style="margin:0px 8px 0px 8px;">
+            <a href="javascript:void(0);" class="nav-link waves-light" routerLink="checkinout" mdbRippleRadius>
+              <!-- <i class="fa fa-check-square navbaricons" aria-hidden="true"></i> -->
+              <span class="navbaritem">Inputs</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" style="margin:0px 8px 0px 8px;">
+            <a href="javascript:void(0);" class="nav-link waves-light" routerLink="checkinout" mdbRippleRadius>
+              <!-- <i class="fa fa-check-square navbaricons" aria-hidden="true"></i> -->
+              <span class="navbaritem">Approve</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" style="margin:0px 8px 0px 8px;">
+            <a href="javascript:void(0);" class="nav-link waves-light" routerLink="checkinout" mdbRippleRadius>
+              <!-- <i class="fa fa-check-square navbaricons" aria-hidden="true"></i> -->
+              <span class="navbaritem">Publish</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" style="margin:0px 8px 0px 8px;">
+            <a href="javascript:void(0);" class="nav-link waves-light" routerLink="dashboard" mdbRippleRadius>
+              <!-- <i class="fa fa-check-square navbaricons" aria-hidden="true"></i> -->
+              <span class="navbaritem">My Dashboard</span>
+            </a>
+          </li>
+          <li [ngStyle]="{'display':isVisible ? 'inline' : 'none'}" class="nav-item" routerLinkActive="active" style="margin:0px 8px 0px 8px;">
+            <a href="javascript:void(0);" (click)="setLogoutInVisible();" class="nav-link waves-light" mdbRippleRadius>
+              <!-- <i class="fa fa-check-square navbaricons" aria-hidden="true"></i> -->
+              <span class="navbaritem">Logout</span>
+            </a>
+          </li>
+          <li class="nav-item" routerLinkActive="active" style="margin:0px 8px 0px 8px;">
+            <a href="javascript:void(0);" class="nav-link waves-light" routerLink="login" mdbRippleRadius>
+              <!-- <i class="fa fa-check-square navbaricons" aria-hidden="true"></i> -->
+              <span class="navbaritem">Logout</span>
+            </a>
+          </li>
+        </ul>
+        <!-- Links -->
+
+      </links>
+      <!-- Collapsible content -->
+
+
+    </mdb-navbar>
+    <!--/.Navbar-->
+  </header>
+
+  <div class="content" style="margin-top:20px;">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!--Footer-->
+  <footer *ngIf="isLoginRoute()" class="footer fixed-bottom page-footer deep-purple center-on-small-only pt-0">
+
+    <!--Copyright-->
+    <div class="footer-copyright">
+      <div class="container-fluid">
+
+        <span style="float:right; margin-right:25px;" class="navbaritem">
+          © {{this.currentyear}} Copyright <i> Market Zoom </i>
+        </span>
+      </div>
+    </div>
+    <!--/Copyright-->
+
+  </footer>
+  <!--/Footer-->
+</div>

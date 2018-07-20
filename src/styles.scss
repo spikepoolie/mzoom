@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+.topmargin{
+  margin-top:50px;
+}
+
+.content {
+    max-width: 1550px;
+    margin: auto;
+    background: white;
+    padding: 5px;
+}
+del {
+	text-decoration: none;
+	color: #b30000;
+	background: #fadad7;
+}
+ins {
+	background: #eaf2c2;
+	color: #406619;
+	text-decoration: none;
+}
+normal {
+  text-decoration: none;
+  color: black;
+}

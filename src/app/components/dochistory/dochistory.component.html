@@ -1,0 +1,26 @@
+<p (click)="openModal();"><a href="javascript:void(0);">Document History    <i class="fa fa-info-circle" aria-hidden="true"></i></a></p>
+<div *ngIf="isModalShownBottom" [config]="{ show: isModalShownBottom }" (onHidden)="onHidden()" mdbModal #basicModal="mdb-modal"
+  class="modal fade left" tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+  <div class="modal-dialog modal-full-height modal-left" style="width:550px;" role="document">
+    <div class="modal-content">
+      <h5 class="card-header primary-color white-text text-center" id="myModalLabel">Revisions for<br> <span style="color:lightgreen;">{{documentname}}</span></h5>
+      <div class="modal-body">
+        <p class="text-center" style="color:darkblue;">Plese select 2 documents to review</p>
+        <div style="overflow:auto;" [style.height.px]="mobHeight">
+          <div *ngFor="let docs of documentsHistory" style="padding: 10px;">
+            <input type="checkbox" value="{{docs.id}}" class="form-check-input" (change)="updateSelection(docs.id, $event)">            Reviewed on: {{docs.doc_reviewed_date | date: 'shortDate'}} by {{docs.reviewer}}
+          </div>
+          <div class="row" style="margin-top:20px;">
+            <div class="col-6">
+              <button (click)="compareReviews(); closeMyModal(0);" class="btn btn-deep-orange" style="margin-left:40px;" [disabled]="!isComparable">
+            <i class="fa fa-code-fork amber-text" aria-hidden="true"></i>  Compare</button>
+            </div>
+            <div class="col-6">
+              <button type="button" class="btn btn-danger relative waves-light" (click)="closeMyModal(1);" mdbRippleRadius><i class="fa fa-close" aria-hidden="true"></i>   CLOSE</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

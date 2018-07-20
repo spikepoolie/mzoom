@@ -1,0 +1,44 @@
+<center><img src="{{GetLogo()}}"></center>
+<div class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-body topmargin">
+        <div @fadeInAnimation @scaleForm>
+          <h4 class="h4s">Sign in</h4>
+          <form id="login-form" #loginForm="ngForm" (ngSubmit)="checkLogin(loginForm)">
+            <div class="md-form">
+              <i class="fa fa-envelope prefix navbaritem"></i>
+              <input type="email" id="username" class="form-control" [mdbValidate]="false"  mdbInputDirective name="username" ngModel tabindex="1" required email #username="ngModel"
+                (change)="clearSentRecoverPasswordMessage()">
+              <label for="username">Email</label>
+            </div>
+
+            <div class="md-form">
+              <i class="fa fa-lock prefix navbaritem"></i>
+              <input type="password" class="form-control" mdbInputDirective [mdbValidate]="false"  [disabled]="!username.valid" ngModel name="password" tabindex="2" class="form-control"
+                #password="ngModel" required (change)="clearSentRecoverPasswordMessage()">
+              <label for="defaultForm-pass">Your password</label>
+            </div>
+
+            <div class="text-center">
+              <input type="submit" [disabled]="!username.valid || !password.valid || isSubmitting" name="login-submit" id="login-submit"
+                tabindex="4" class="btn btn-indigo  waves-light" value="Sign in" mdbRippleRadius>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="text-center topmargin">
+        <p>Not a member?<a href="javascript:void(0);" (click)="this.SetPageToGo('register')" class="nav-link waves-light navbaritem"
+            routerLink="/register" mdbRippleRadius>Sign Up</a></p>
+        <p>Forgot <a href="javascript:void(0);" (click)="this.SetPageToGo('recover')" class="nav-link waves-light navbaritem"
+            routerLink="/recover" mdbRippleRadius>Password?</a></p>
+      </div>
+
+      <div class="alert alert-danger text-center" *ngIf="!hasUserName">Username is required</div>
+      <div class="alert alert-danger text-center" *ngIf="!hasPassWord" @itemAnim>Password is required</div>
+      <div class="alert alert-danger text-center" *ngIf="!hasCorrectLogin" @itemAnim>Wrong username or password</div>
+
+    </div>
+  </div>
+</div>

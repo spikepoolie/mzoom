@@ -1,0 +1,154 @@
+<div class="row">
+  <div class="col-md-9">
+    <div class="card" style="margin-top:100px; padding:40px;" id="mycard">
+      <h5 class="card-header primary-color white-text text-center" style="margin-bottom:40px;">{{masterName}}</h5>
+      <app-dochistory [openMethod]="isModalShownBottom" [myDataDocs]="getMyDataDocs()" [documentname]="doc_name" [documentsHistory]="documentsHistory"></app-dochistory>
+      <div class="card-body">
+        <div class="row text-center">
+          <div class="col">
+
+            <div class="btn-group" dropdown>
+              <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myInitiative !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'">
+                INTIATIVE
+              </button>
+              <div class="dropdown-menu dropdown-primary">
+                <a *ngFor="let initiative of initiativesList" class="dropdown-item" href="javascript:void(0);" (click)="myInitiative=initiative.initiative_name;myInitiativeId=initiative.id">
+                    {{initiative.initiative_name}}
+              </a>
+              </div>
+            </div>
+            <div style="padding-top:10px;">{{myInitiative}}</div>
+          </div>
+          <div class="col">
+
+            <div class="btn-group" dropdown>
+              <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myCampaign !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'">
+                CAMPAIGN
+              </button>
+              <div class="dropdown-menu dropdown-primary">
+                <a *ngFor="let camp of campaignList" class="dropdown-item" href="javascript:void(0);" (click)="myCampaign=camp.campaign_name; myCampaignId=camp.id">
+                            {{camp.campaign_name}}
+                      </a>
+              </div>
+            </div>
+            <div style="padding-top:10px;">{{myCampaign}}</div>
+          </div>
+          <div class="col">
+            <div class="btn-group" dropdown>
+              <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myAsset !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'">
+                ASSET
+              </button>
+              <div class="dropdown-menu dropdown-primary">
+                <a *ngFor="let asset of assetList" class="dropdown-item" href="javascript:void(0);" (click)="myAsset=asset.asset_name; myAssetId=asset.id">
+                      {{asset.asset_name}}
+                </a>
+              </div>
+            </div>
+            <div style="padding-top:10px;">{{myAsset}}</div>
+          </div>
+          <div class="col-md-2">
+            <div class="btn-group" dropdown>
+              <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myRole !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'">
+                ROLE
+              </button>
+              <div class="dropdown-menu dropdown-primary">
+                <a *ngFor="let role of roleList" class="dropdown-item" href="javascript:void(0);" (click)="myRole=role.role_name; myRoleId=role.id">
+                    {{role.role_name}}
+                </a>
+              </div>
+            </div>
+            <div style="padding-top:10px;">{{myRole}}</div>
+          </div>
+          <div class="col">
+            <div class="btn-group" dropdown>
+              <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myTypes !== '' ? 'btn btn-light-blue' : 'btn       btn-outline-blue-grey'">
+                TYPE
+              </button>
+              <div class="dropdown-menu dropdown-primary">
+                <a *ngFor="let types of typesList" class="dropdown-item" href="javascript:void(0);" (click)="myTypes=types.type_name;myTypeId=types.id">
+                    {{types.type_name}}
+                </a>
+              </div>
+            </div>
+            <div style="padding-top:10px;">{{myTypes}}</div>
+          </div>
+        </div>
+        <br>
+
+
+        <div class="md-form" style="margin-bottom:20px;">
+          <label style="color:darkgray;" for="doc_name">Document Name</label>
+          <input type="text" class="form-control" mdbInputDirective [mdbValidate]="false" name="doc_name" [(ngModel)]="doc_name">
+        </div>
+        <textarea rows="25" cols="40" class="form-control" style="width:100%;height:90%;">
+          {{contentHelper}}
+        </textarea>
+        <div style="float:right">
+          <button class='btn btn-success waves-effect' type="submit">
+            <i class="fa fa-save" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Save
+          </button>
+          <button class='btn btn-primary' type="submit">
+            <i class="fa fa-paper-plane animated rotateIn" aria-hidden="true"></i> &nbsp;&nbsp;&nbsp;Save and Submit for inputs
+          </button>
+        </div>
+        <br>
+        <!-- <div style="float:left; margin-top:40px;">
+          <a href="javascript:void(0);" (click)="isModalShown = true">Helpful Resources&nbsp;<i class="fa fa-thumbs-up" aria-hidden="true"></i></a>
+        </div> -->
+      </div>
+    </div>
+
+
+  </div>
+  <div class="col-md-3">
+    <div class="card" style="margin-top:100px; padding:40px;" id="mycard1">
+      <h5 class="card-header success-color white-text text-center" style="margin-bottom:40px;">Helpful Resources</h5>
+      <div class="row d-flex justify-content-center">
+
+        <!--Grid column-->
+        <div class="col-md-12" *ngFor="let docs of resourcesList" style="padding: 10px;display:block;">
+
+          <p style="overflow-wrap: break-word;">
+            <a href="assets/{{docs.doc_path}}" download="{{docs.doc_name}}" target="_blank" class="e2e-trusted-url">
+              {{docs.doc_name}}
+          </a>
+          </p>
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isModalShown" [config]="{ show: isModalShown }" (onHidden)="onHidden()" mdbModal #basicModal="mdb-modal" class="modal fade right"
+  tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+  <div class="modal-dialog modal-full-height modal-right" style="width:550px;" role="document">
+    <div class="modal-content">
+      <h5 class="card-header primary-color white-text text-center" id="myModalLabel">Helpful Resources</h5>
+      <div class="modal-body">
+        <div style="overflow:auto;" [style.height.px]="mobHeight">
+          <div *ngFor="let docs of myDataDocs" style="padding: 10px;display:inline-block;">
+            <div class="btn-group dropup" dropdown>
+              <button dropdownToggle type="button" class="btn btn-light-blue dropdown-toggle waves-light" mdbWavesEffect>
+              {{docs.docname}}
+            </button>
+              <div class="dropdown-menu dropdown-primary">
+                <a *ngFor="let docsample of docs.documents" href="{{docsample.doclink}}" download="{{docsample.documentname}}" target="_blank"
+                  class="dropdown-item">
+                  <i class="fa fa-cloud-download ml-10 fa-1x" aria-hidden="true"></i>    {{docsample.documentname}}
+              </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger relative waves-light" (click)="basicModal.hide();" mdbRippleRadius>
+          <span>CLOSE</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

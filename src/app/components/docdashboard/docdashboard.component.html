@@ -1,0 +1,38 @@
+<div class=" topmargin">
+  <div class="card">
+    <h3 class="card-header primary-color white-text text-center">{{user}}'s Dashboard - {{myTotal}}</h3>
+    <div class="card-body">
+      <ul class="list-group">
+        <li (click)="getDocsByFlow(doc.doc_flow_id, doc.current_flow)" class="list-group-item d-flex justify-content-between align-items-center"
+          *ngFor="let doc of myData">
+          {{doc.current_flow}}
+          <span class="badge badge-primary badge-pill">{{doc.total}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isModalShown" [config]="{ show: isModalShown }" (onHidden)="onHidden()" mdbModal #basicModal="mdb-modal" class="modal fade right"
+  tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
+  <div class="modal-dialog modal-full-height modal-right" style="width:650px;" role="document">
+    <div class="modal-content">
+      <h5 class="card-header primary-color white-text text-center" id="myModalLabel">{{docFlowDescription}}</h5>
+      <div class="modal-body">
+        <div style="overflow:auto;">
+          <ul class="list-group">
+            <li (click)="myid = doc.id; basicModal.hide();" class="list-group-item d-flex justify-content-between align-items-center"
+              *ngFor="let doc of myRecords let i = index">
+              <span>{{doc.doc_name}}</span><span style="float: right">  {{doc.doc_created_date| date: 'shortDate'}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger relative waves-light" (click)="basicModal.hide();" mdbRippleRadius>
+          <span>CLOSE</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

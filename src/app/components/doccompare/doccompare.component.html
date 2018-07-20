@@ -1,0 +1,85 @@
+<!-- <div class="topmargin">
+  <div class="content" style="background-color:lightblue; border:1px solid gray; padding:10px;">
+    <div @fadeInAnimation @scaleForm>
+      <div class="row">
+        <div class="col-md-12">
+          <h5 class="text-center">Reviews for <span style="color:blue;">{{docname}}</span></h5>
+        </div>
+      </div>
+      <div class="row">
+         <div class="col-md-6">
+          <div>
+              Reviewed by <span style='color:blue;'>
+              {{doc_reviewer_1}}</span> on
+              <span style='color:blue;'>{{doc_reviewed_date_1 | date: 'shortDate'}} at {{doc_reviewed_date_1 | date: 'shortTime'}}</span>
+          </div>
+          <textarea cols="60" rows="30">{{doc_content_1}}</textarea>
+        </div>
+        <div class="col-md-6">
+          <div>
+              Reviewed by
+              <span style='color:blue;'>
+              {{doc_reviewer_2}}</span> on
+              <span style='color:blue;'>{{doc_reviewed_date_2 | date: 'shortDate'}} at {{doc_reviewed_date_2 | date: 'shortTime'}}</span>
+          </div>
+          <textarea cols="60" rows="30">{{doc_content_2}}</textarea></div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-danger" style="float:right;" (click)="goToReview();"><i class="fa fa-mail-reply" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="topmargin">
+  <div class="content" style="background-color:#F4F3F2; border:1px solid gray; padding:10px;">
+    <div @fadeInAnimation @scaleForm>
+      <div class="row">
+        <div class="col-md-12">
+          <h5 class="text-center">Reviews for <span style="color:blue;">{{docname}}</span></h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div>
+            Reviewed by <span style='color:blue;'>
+              {{doc_reviewer_1}}</span> on
+            <span style='color:blue;'>{{doc_reviewed_date_1 | date: 'shortDate'}} at {{doc_reviewed_date_1 | date: 'shortTime'}}</span>
+          </div>
+          <textarea cols="80" rows="15">{{doc_content_1}}</textarea>
+        </div>
+        <div class="col">
+          <div>
+            Reviewed by
+            <span style='color:blue;'>
+              {{doc_reviewer_2}}</span> on
+            <span style='color:blue;'>{{doc_reviewed_date_2 | date: 'shortDate'}} at {{doc_reviewed_date_2 | date: 'shortTime'}}</span>
+          </div>
+          <textarea #mainContainer cols="80" rows="15">{{doc_content_2}}</textarea></div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div id="result" style="border:1px solid lightgray; padding: 10px;" [style.height.px]="myComparedDocHeight" [style.width.px]="myComparedDocWidth"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <ul class="fa-ul">
+            <li><i class="fa-li fa fa-square green-text"></i>added</li>
+            <li><i class="fa-li fa fa-square red-text"></i>deleted</li>
+            <li><i class="fa-li fa fa-square black-text"></i>kept</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-danger" style="float:right;" (click)="goToReview();"><i class="fa fa-mail-reply" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Back</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
