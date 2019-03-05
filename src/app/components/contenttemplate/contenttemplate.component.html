@@ -96,8 +96,11 @@
             {{contentHelper}}
           </textarea> -->
           <form id="login-form" #loginForm="ngForm">
-            <editor name="dataModel" apiKey="9yi8m05v9eb7kesph36l7yv4ddr94z9v5jd5bfcjyhr0mfcx" [init]="{height:500, toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat', plugins: 'print preview fullpage powerpaste searchreplace autolink directionality advcode visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount tinymcespellchecker a11ychecker imagetools mediaembed  linkchecker contextmenu colorpicker textpattern help'}"
-              [(ngModel)]="contentHelper">
+             <editor
+                name="dataModel"
+                apiKey="9yi8m05v9eb7kesph36l7yv4ddr94z9v5jd5bfcjyhr0mfcx"
+                [init]="{height:500, toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | ', plugins: 'print preview fullpage searchreplace autolink directionality visualblocks visualchars fullscreen image link  template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textcolor wordcount   imagetools   contextmenu colorpicker textpattern help'}"
+                [(ngModel)]="contentHelper">
             </editor>
           </form>
           <br>
@@ -126,11 +129,11 @@
   </div>
   <div class="col-md-3" [ngStyle]="{'display':hasContent ? 'inline' : 'none'}">
     <div class="card helpfulresources" style="margin-top:100px; padding:40px;" id="mycard1">
-      <h5 class="card-header primary-color white-text text-center" style="margin-bottom:20px;">Helpful Resources</h5>
+      <h5 class="card-header primary-color white-text text-center" style="margin-bottom:20px; min-width: 300px;">Helpful Resources2</h5>
       <div class="row d-flex" style="margin-top:15px;">
 
         <!--Grid column-->
-        <h6 class="card-header success-color white-text" style="margin-bottom:20px;">Role Intelligence</h6>
+        <h6 class="card-header success-color white-text" style="margin-bottom:20px; min-width: 300px;">Role Intelligence</h6>
         <div  class="col-md-12" *ngFor="let docs of roleIntelligenceList">
 
            <p style="overflow-wrap: break-word;">
@@ -147,7 +150,7 @@
         </div>
 
 
-        <h6 class="card-header success-color white-text" style="margin-bottom:20px;">Best In Class Samples and Templates</h6>
+        <h6 class="card-header success-color white-text" style="margin-bottom:20px; min-width: 300px;">Best In Class Samples and Templates</h6>
         <div  class="col-md-12" *ngFor="let docs of bestsampletemplate">
 
            <p style="overflow-wrap: break-word;">
@@ -163,7 +166,7 @@
 
         </div>
 
-        <h6 class="card-header success-color white-text" style="margin-bottom:20px;">Market and Competitive Intelligence</h6>
+        <h6 class="card-header success-color white-text" style="margin-bottom:20px; min-width: 300px;">Market and Competitive Intelligence</h6>
         <div  class="col-md-12" *ngFor="let docs of competitiveIntelligence">
 
            <p style="overflow-wrap: break-word;">
@@ -180,7 +183,6 @@
         </div>
 
         <!--Grid column-->
-
       </div>
     </div>
   </div>
@@ -190,7 +192,7 @@
   tabindex="-1" role="dialog" aria-labelledby="myBasicModalLabel" aria-hidden="true" [config]="{backdrop: false, ignoreBackdropClick: true}">
   <div class="modal-dialog modal-full-height modal-right" style="width:550px;" role="document">
     <div class="modal-content">
-      <h5 class="card-header primary-color white-text text-center" id="myModalLabel">Helpful Resources</h5>
+      <h5 class="card-header primary-color white-text text-center" id="myModalLabel">Helpful Resources1</h5>
       <div class="modal-body">
         <div style="overflow:auto;" [style.height.px]="mobHeight">
 

@@ -6,8 +6,6 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MktZoomServiceService } from './../../services/mkt-zoom-service.service';
 
-
-
 @Component({
   selector: 'app-contenttemplate',
   templateUrl: './contenttemplate.component.html',
@@ -114,7 +112,7 @@ export class ContenttemplateComponent implements OnInit {
     this.getUsers();
     this.getInitiativesList();
     this.getTypesList();
-    this.getResoucesList();
+    //this.getResoucesList();
     if (localStorage.getItem('islogged') === '0' || localStorage.getItem('islogged') === undefined || localStorage.getItem('islogged') === null) {
       this.router.navigateByUrl('/loginregistration');
     }
