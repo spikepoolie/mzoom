@@ -11,6 +11,7 @@ export class ApprovecontentComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    console.log("here I a ");
     if (localStorage.getItem('islogged') === '0' || localStorage.getItem('islogged') === undefined || localStorage.getItem('islogged') === null) {
       this.router.navigateByUrl('/loginregistration');
     }

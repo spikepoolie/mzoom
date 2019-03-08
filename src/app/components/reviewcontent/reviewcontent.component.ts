@@ -101,7 +101,7 @@ export class ReviewcontentComponent implements OnInit {
       this.getDocument(parseInt(localStorage.getItem('docid'), 0));
       this.getInitiativesList();
       this.getTypesList();
-      this.getResoucesList();
+      //this.getResoucesList();
       this.getDocumentsReview(parseInt(localStorage.getItem('docid'), 0));
     } else {
       this.router.navigateByUrl('/dashboard');

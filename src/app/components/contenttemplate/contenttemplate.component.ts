@@ -39,9 +39,9 @@ export class ContenttemplateComponent implements OnInit {
   assetList = [];
   myEntry = '';
   usersSelected = [];
-  roleIntelligenceList = [];
-  competitiveIntelligence = [];
-  bestTemplates = [];
+  personaIntelligenceList = [];
+  templatetools = [];
+  resources = [];
   userslist = [];
   roleList = [];
   cioResearch = [{ 'name': 'CIO priorities 2018', 'link': 'https://www.riministreet.com/Documents/Collateral/Rimini-Street-Success-Story-RSA-Insurance.pdf' }];
@@ -241,9 +241,12 @@ export class ContenttemplateComponent implements OnInit {
     this.mktZoomService.getContent(myEntry, this.resourcesUrl).subscribe(response => {
       if (response.length > 0) {
        this.contentHelper = response[0].document_content;
-       this.roleIntelligenceList = JSON.parse(response[0].role_intelligence);
-       this.competitiveIntelligence = JSON.parse(response[0].competitive_intelligence);
-       this.bestsampletemplate = JSON.parse(response[0].best_templates);
+       this.personaIntelligenceList = JSON.parse(response[0].persona_intelligence);
+       this.resources = JSON.parse(response[0].resources);
+       this.templatetools = JSON.parse(response[0].templates_tools);
+       console.log(this.personaIntelligenceList);
+       console.log(this.resources);
+       console.log(this.templatetools);
       }
     });
   }
