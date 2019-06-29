@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ApprovecontentComponent } from './components/approvecontent/approvecontent.component';
 import { ContenthelperComponent } from './components/contenthelper/contenthelper.component';
@@ -50,7 +50,7 @@ import { SafePipe } from './safe.pipe';
     BrowserAnimationsModule,
     FormsModule,
     EditorModule,
-    HttpModule,
+    HttpClientModule,
     MDBBootstrapModule.forRoot(),
     AppRoutingModule
   ],

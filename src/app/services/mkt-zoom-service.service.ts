@@ -3,7 +3,8 @@
 import { BaseService } from './base.service';
 import { AppComponent } from '../app.component';
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import {  Response } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -12,7 +13,7 @@ import { map } from 'rxjs/operators';
 export class MktZoomServiceService extends BaseService {
   private static RESOURCE = '';
 
-  constructor(public http: Http) {
+  constructor(public http: HttpClientModule) {
     super(http, MktZoomServiceService.RESOURCE);
   }
 

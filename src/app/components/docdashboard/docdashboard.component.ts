@@ -24,7 +24,7 @@ export class DocdashboardComponent implements OnInit {
   docFlowDescription = '';
   private urlGetDocsByUser = 'mktzoom_get_user_documents.php';
   private urlGetDocByFlow = 'mktzoom_get_user_documents_by_flow.php';
-  @ViewChild('basicModal') public basicModal: ModalDirective;
+  @ViewChild('basicModal', { static: true }) public basicModal: ModalDirective;
 
   constructor(
     private router: Router,

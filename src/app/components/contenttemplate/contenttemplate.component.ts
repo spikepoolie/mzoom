@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { trigger, state, transition, style, animate, group } from '@angular/animations';
 import { ModalDirective } from 'angular-bootstrap-md';
-import { Http } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MktZoomServiceService } from './../../services/mkt-zoom-service.service';
@@ -93,7 +93,7 @@ export class ContenttemplateComponent implements OnInit {
   public isModalEmailsShown = false;
 
   constructor(
-    private http: Http,
+    private http: HttpClientModule,
     private router: Router,
     private mktZoomService: MktZoomServiceService
   ) {
@@ -101,8 +101,8 @@ export class ContenttemplateComponent implements OnInit {
     this.mobWidth = (window.screen.width / 2);
   }
 
-  @ViewChild('basicModal') public basicModal: ModalDirective;
-  @ViewChild('basicModal1') public basicModal1: ModalDirective;
+  @ViewChild('basicModal', { static: true }) public basicModal: ModalDirective;
+  @ViewChild('basicModal1', { static: true }) public basicModal1: ModalDirective;
 
   ngOnInit() {
     this.helpMenuOpen = 'out';

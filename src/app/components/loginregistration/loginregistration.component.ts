@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { trigger, state, transition, style, animate, group } from '@angular/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, NgForm } from '@angular/forms';
-import { Http } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from './../../services/data.service';
 
@@ -116,7 +116,7 @@ export class LoginregistrationComponent implements OnInit {
   private urlCheckLogin = 'mktzoom_check_login.php';
 
   constructor(
-    private http: Http,
+    private http: HttpClientModule,
     private router: Router,
     private data: DataService,
     private route: ActivatedRoute,

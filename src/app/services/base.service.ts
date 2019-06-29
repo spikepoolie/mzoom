@@ -1,6 +1,7 @@
 import { Data } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { Headers, Http, Response, RequestOptions } from '@angular/http';
+import { Headers, Response, RequestOptions } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { Observable, of, throwError, pipe } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -10,7 +11,7 @@ export class BaseService {
   private httpOptions = new RequestOptions({ headers: this.httpHeaders });
   public isAdminUser = 0;
   constructor(
-    public http?: Http,
+    public http?: HttpClientModule,
     public resource?: string,
     public API_PATH: string = 'https://goemobile.com/mzoom/php/',
   ) { }

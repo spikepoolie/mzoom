@@ -18,7 +18,7 @@ export class DochistoryComponent implements OnInit {
   @Input('documentsHistory') documentsHistory: any;
   private compareUrl = 'mktzoom_compare_doc_reviews.php';
 
-  @ViewChild('basicModal') public basicModal: ModalDirective;
+  @ViewChild('basicModal', { static: true }) public basicModal: ModalDirective;
   isModalShownBottom = true;
   isModalHistoryShown = false;
   mobHeight: number;

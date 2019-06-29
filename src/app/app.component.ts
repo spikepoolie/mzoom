@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Http } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar/navbar.component';
 import { LoginregistrationComponent } from './components/loginregistration/loginregistration.component';
 
@@ -15,7 +15,7 @@ export class AppComponent {
   title = 'MarketZoom';
   url = '';
   constructor(
-    private http: Http,
+    private http: HttpClientModule,
     private router: Router) {
     this.router.events.subscribe(
       (res) => {

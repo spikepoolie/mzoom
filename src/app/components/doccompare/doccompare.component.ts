@@ -109,7 +109,7 @@ import * as jsdiff from 'diff';
 })
 
 export class DoccompareComponent implements OnInit {
-  @ViewChild('mainContainer') inputEl: ElementRef;
+  @ViewChild('mainContainer', { static: true }) inputEl: ElementRef;
   doccomparado = [];
   comparado: string;
   counter = 0;
