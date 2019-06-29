@@ -1,0 +1,35 @@
+<div class=" topmargin">
+  <div class="card">
+    <h3 class="card-header primary-color white-text text-center">My Files</h3>
+    <div class="card-body">
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Document Name</th>
+                <th>Document Date</th>
+                <th>Document Intent</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- <tr (click)="getDocsByFlow(doc.doc_flow_id, doc.current_flow)" class="list-group-item d-flex justify-content-between align-items-center" -->
+              <tr *ngFor="let doc of myRecords let i = index">
+                <td ><a style="color:blue;" href="javascript:void(0);" (click)="getMyFile(doc.id)">{{doc.doc_name}}</a></td>
+                <td>{{doc.doc_created_date | date: 'longDate'}}</td>
+                <td>
+                  <span class="bolds">Initiative: </span>{{doc.Initiative}}<br>
+                  <span class="bolds">Campaign: </span>{{doc.Campaign}}<br>
+                  <span class="bolds">Asset: </span>{{doc.Asset}}<br>
+                  <span class="bolds">Role: {{doc.Role}}</span><br>
+                  <span class="bolds">Type: </span>{{doc.Type}}
+                </td>
+              </tr>
+            </tbody>
+           </table>
+        </div>
+    </div>
+  </div>
+</div>
+
+
