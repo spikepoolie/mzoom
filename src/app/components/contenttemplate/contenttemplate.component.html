@@ -128,10 +128,38 @@
   </div>
   <div class="col-lg-3 col-md-3 col-sm-3" [ngStyle]="{'display':hasContent ? 'inline' : 'inline'}">
     <div class="card helpfulresources" style="margin-top:100px;" id="mycard1">
-      <h6 class="card-header primary-color white-text text-center" style="margin-bottom:20px; min-width: 300px;">Intelligence, Tools and Resources</h6>
+      <h6 class="card-header primary-color white-text text-center" style="margin-bottom:20px; min-width: 300px;">Tools and Templates, Intelligence, Resources</h6>
       <!-- <div class="row"> -->
 
         <!--Grid column-->
+        <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 300px; font-weight: bold">Planning Tools</h5>
+        <div *ngFor="let docs of bestPracticeTemplates">
+
+
+             <a style="overflow-wrap: break-word;margin-left:25px;"
+                href="{{docs.document_link}}"
+
+                target="_blank"
+                class="e2e-trusted-url"
+              >
+                {{docs.document}}
+            </a>
+          <br>
+
+        </div>
+        <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 300px; font-weight: bold">Best Practice Templates</h5>
+
+        <div *ngFor="let docs of templatetools">
+             <a style="overflow-wrap: break-word;margin-left:25px;"
+                href="{{docs.document_link}}"
+
+                target="_blank"
+                class="e2e-trusted-url"
+              >
+                {{docs.document}}
+            </a>
+          <br><br>
+        </div>
         <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 300px; font-weight: bold">Intelligence</h5>
         <p  style="margin-left:15px;">Persona Intelligence</p>
         <div *ngFor="let docs of personaIntelligenceList">
@@ -152,19 +180,6 @@
         <p style="margin-left:15px;">Industry Intelligence</p>
         <hr>
         <p style="margin-left:15px;">Competitive Intelligence</p>
-        <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 300px; font-weight: bold">Templates and Tools</h5>
-
-        <div *ngFor="let docs of templatetools">
-             <a style="overflow-wrap: break-word;margin-left:25px;"
-                href="{{docs.document_link}}"
-
-                target="_blank"
-                class="e2e-trusted-url"
-              >
-                {{docs.document}}
-            </a>
-          <br><br>
-        </div>
 
         <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 300px; font-weight: bold">Resources</h5>
 
@@ -178,6 +193,14 @@
                 {{docs.document}}
             </a>
           <br>
+        </div>
+        <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 300px; font-weight: bold">Get Content Expertise</h5>
+
+        <div *ngFor="let docs of experticesContent">
+          <a style="overflow-wrap: break-word;margin-left:25px;" href="{{docs.document_link}}" target="_blank" class="e2e-trusted-url">
+                {{docs.document}}
+            </a>
+          <br><br>
         </div>
 
         <!--Grid column-->

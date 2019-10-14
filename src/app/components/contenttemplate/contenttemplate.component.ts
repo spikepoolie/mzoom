@@ -40,6 +40,8 @@ export class ContenttemplateComponent implements OnInit {
   myEntry = '';
   usersSelected = [];
   personaIntelligenceList = [];
+  bestPracticeTemplates = [];
+  experticesContent = [];
   templatetools = [];
   resources = [];
   userslist = [];

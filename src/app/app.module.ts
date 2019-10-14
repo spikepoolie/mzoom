@@ -1,3 +1,4 @@
+import { MyFilesComponent } from './components/my-files/my-files.component';
 import { MktZoomServiceService } from './services/mkt-zoom-service.service';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -34,6 +35,7 @@ import { SafePipe } from './safe.pipe';
     CreatecontentComponent,
     DoccompareComponent,
     DocdashboardComponent,
+    MyFilesComponent,
     DochistoryComponent,
     LoginregistrationComponent,
     LogoutComponent,
