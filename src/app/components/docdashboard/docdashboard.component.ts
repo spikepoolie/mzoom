@@ -19,6 +19,7 @@ export class DocdashboardComponent implements OnInit {
   user = localStorage.getItem('user');
   myid;
   myData: any[];
+  personaIntelligenceList = [];
   myRecords: any[];
   myTotal = 0;
   docFlowDescription = '';

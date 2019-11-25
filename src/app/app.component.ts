@@ -14,6 +14,7 @@ export class AppComponent {
   currentyear: number = this.todayDate.getFullYear();
   title = 'MarketZoom';
   url = '';
+  isModalShown = false;
   types = ["PDF","Web Page", "Blog", "Social Media"];
   dontdisplay = true;
   constructor(
@@ -24,6 +25,10 @@ export class AppComponent {
         this.url = this.router.url;
       }
     );
+  }
+
+  public onHidden(): void {
+    this.isModalShown = false;
   }
 
   showPublishOptions() {

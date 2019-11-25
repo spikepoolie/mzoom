@@ -1,6 +1,7 @@
-<div class="row">
+
+<div class="row" style="margin:3px;">
   <div class="col-lg-9 col-md-9 col-sm-9">
-    <div class="card" style="margin-top:100px; padding:40px;" id="mycard">
+    <div class="card" style="margin-top:100px; " id="mycard">
       <form id="entryForm" #entryForm="ngForm" (ngSubmit)="createDocument(entryForm)">
         <input type="hidden" name="myCampaignId" [(ngModel)]="myCampaignId" value="{{myCampaignId}}">
         <input type="hidden" name="myInitiativeId" [(ngModel)]="myInitiativeId" value="{{myInitiativeId}}">
@@ -16,9 +17,9 @@
         <div class="card-body">
           <div class="row text-center">
             <div class="col-lg col-md col-sm">
-              <div class="btn-group" dropdown style="width:180px;">
-                <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myInitiative !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'">
-                INTIATIVE&nbsp;&nbsp;&nbsp;
+              <div class="btn-group" dropdown>
+                <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myInitiative !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'" style="font-size:9pt; padding:12px !important;">
+                INTIATIVE
               </button>
                 <div class="dropdown-menu dropdown-primary">
                   <a *ngFor="let initiative of initiativesList" class="dropdown-item" href="javascript:void(0);" (click)="myInitiative=initiative.initiative_name;myInitiativeId=initiative.id">
@@ -30,9 +31,9 @@
             </div>
             <div class="col-lg col-md col-sm">
 
-              <div class="btn-group" dropdown style="width:180px;">
-                <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myCampaign !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'">
-                CAMPAIGN&nbsp;
+              <div class="btn-group" dropdown>
+                <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myCampaign !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'" style="font-size:9pt; padding:12px !important;">
+                CAMPAIGN
               </button>
                 <div class="dropdown-menu dropdown-primary">
                   <a *ngFor="let camp of campaignList" class="dropdown-item" href="javascript:void(0);" (click)="myCampaign=camp.campaign_name;myCampaignId=camp.id">
@@ -43,9 +44,9 @@
               <div style="padding-top:10px;">{{myCampaign}}</div>
             </div>
             <div class="col-lg col-md col-sm">
-              <div class="btn-group" dropdown style="width:180px;">
-                <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myAsset !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'">
-                ASSET&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="btn-group" dropdown>
+                <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myAsset !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'" style="font-size:9pt; padding:12px !important;">
+                ASSET
               </button>
                 <div class="dropdown-menu dropdown-primary">
                   <a *ngFor="let asset of assetList" class="dropdown-item" href="javascript:void(0);" (click)="myAsset=asset.asset_name;myAssetId=asset.id">
@@ -55,10 +56,10 @@
               </div>
               <div style="padding-top:10px;">{{myAsset}}</div>
             </div>
-            <div class="col-lg-2 col-md-2 col-sm-2">
-              <div class="btn-group" dropdown style="width:180px;">
-                <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myRole !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'">
-                ROLE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="col-lg col-md col-sm">
+              <div class="btn-group" dropdown>
+                <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myRole !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'" style="font-size:9pt; padding:12px !important;">
+                ROLE
               </button>
                 <div class="dropdown-menu dropdown-primary">
                   <a *ngFor="let role of roleList" class="dropdown-item" href="javascript:void(0);" (click)="myRole=role.role_name;myRoleId=role.id">
@@ -69,9 +70,9 @@
               <div style="padding-top:10px;">{{myRole}}</div>
             </div>
             <div class="col-lg col-md col-sm">
-              <div class="btn-group" dropdown style="width:180px;">
-                <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myTypes !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'">
-                TYPE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="btn-group" dropdown>
+                <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myTypes !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'" style="font-size:9pt; padding:12px !important;">
+                TYPE
               </button>
                 <div class="dropdown-menu dropdown-primary">
                   <a *ngFor="let types of typesList" class="dropdown-item" href="javascript:void(0);" (click)="myTypes=types.type_name;myTypeId=types.id;showContent();">
@@ -126,13 +127,13 @@
       </form>
     </div>
   </div>
-  <div class="col-lg-3 col-md-3 col-sm-3" [ngStyle]="{'display':hasContent ? 'inline' : 'inline'}">
-    <div class="card helpfulresources" style="margin-top:100px;" id="mycard1">
-      <h6 class="card-header primary-color white-text text-center" style="margin-bottom:20px; min-width: 300px;">Tools and Templates, Intelligence, Resources</h6>
+  <div class="col-lg-3 col-md-3 col-sm-3" style="margin-top:100px;">
+     <div class="card " id="mycard1"> 
+      <h6 class="card-header primary-color white-text text-center" >Tools & Templates, Intelligence, Resources</h6>
       <!-- <div class="row"> -->
 
         <!--Grid column-->
-        <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 300px; font-weight: bold">Planning Tools</h5>
+        <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 200px; font-weight: bold">Planning Tools</h5>
         <div *ngFor="let docs of bestPracticeTemplates">
 
 
@@ -147,7 +148,7 @@
           <br>
 
         </div>
-        <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 300px; font-weight: bold">Best Practice Templates</h5>
+        <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 200px; font-weight: bold">Best Practice Templates</h5>
 
         <div *ngFor="let docs of templatetools">
              <a style="overflow-wrap: break-word;margin-left:25px;"
@@ -160,7 +161,7 @@
             </a>
           <br><br>
         </div>
-        <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 300px; font-weight: bold">Intelligence</h5>
+        <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 200px; font-weight: bold">Intelligence</h5>
         <p  style="margin-left:15px;">Persona Intelligence</p>
         <div *ngFor="let docs of personaIntelligenceList">
 
@@ -181,7 +182,7 @@
         <hr>
         <p style="margin-left:15px;">Competitive Intelligence</p>
 
-        <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 300px; font-weight: bold">Resources</h5>
+        <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 200px; font-weight: bold">Resources</h5>
 
         <div *ngFor="let docs of resources">
              <a style="overflow-wrap: break-word;margin-left:25px;"
@@ -194,7 +195,7 @@
             </a>
           <br>
         </div>
-        <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 300px; font-weight: bold">Get Content Expertise</h5>
+        <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 200px; font-weight: bold">Get Content Expertise</h5>
 
         <div *ngFor="let docs of experticesContent">
           <a style="overflow-wrap: break-word;margin-left:25px;" href="{{docs.document_link}}" target="_blank" class="e2e-trusted-url">
@@ -204,8 +205,8 @@
         </div>
 
         <!--Grid column-->
-     <!-- </div> -->
-    </div>
+      </div> 
+    <!-- </div> -->
   </div>
 </div>
 

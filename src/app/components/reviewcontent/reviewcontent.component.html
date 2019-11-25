@@ -1,72 +1,86 @@
 <div class="row">
-  <div class="col-md-9">
+  <div class="col-lg-9 col-md-9 col-sm-9">
     <div class="card" style="margin-top:100px; padding:40px;" id="mycard">
       <h5 class="card-header primary-color white-text text-center" style="margin-bottom:40px;">{{masterName}}</h5>
       <app-dochistory [openMethod]="isModalShownBottom" [myDataDocs]="getMyDataDocs()" [documentname]="doc_name" [documentsHistory]="documentsHistory"></app-dochistory>
       <div class="card-body">
         <div class="row text-center">
-          <div class="col">
-
+          <div class="col-lg col-md col-sm">
             <div class="btn-group" dropdown>
-              <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myInitiative !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'">
+              <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect
+                [ngClass]="myInitiative !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'"
+                style="font-size:9pt; padding:12px !important;">
                 INTIATIVE
               </button>
               <div class="dropdown-menu dropdown-primary">
-                <a *ngFor="let initiative of initiativesList" class="dropdown-item" href="javascript:void(0);" (click)="myInitiative=initiative.initiative_name;myInitiativeId=initiative.id">
-                    {{initiative.initiative_name}}
-              </a>
+                <a *ngFor="let initiative of initiativesList" class="dropdown-item" href="javascript:void(0);"
+                  (click)="myInitiative=initiative.initiative_name;myInitiativeId=initiative.id">
+                  {{initiative.initiative_name}}
+                </a>
               </div>
             </div>
             <div style="padding-top:10px;">{{myInitiative}}</div>
           </div>
-          <div class="col">
+          <div class="col-lg col-md col-sm">
 
             <div class="btn-group" dropdown>
-              <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myCampaign !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'">
+              <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect
+                [ngClass]="myCampaign !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'"
+                style="font-size:9pt; padding:12px !important;">
                 CAMPAIGN
               </button>
               <div class="dropdown-menu dropdown-primary">
-                <a *ngFor="let camp of campaignList" class="dropdown-item" href="javascript:void(0);" (click)="myCampaign=camp.campaign_name; myCampaignId=camp.id">
-                            {{camp.campaign_name}}
-                      </a>
+                <a *ngFor="let camp of campaignList" class="dropdown-item" href="javascript:void(0);"
+                  (click)="myCampaign=camp.campaign_name;myCampaignId=camp.id">
+                  {{camp.campaign_name}}
+                </a>
               </div>
             </div>
             <div style="padding-top:10px;">{{myCampaign}}</div>
           </div>
-          <div class="col">
+          <div class="col-lg col-md col-sm">
             <div class="btn-group" dropdown>
-              <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myAsset !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'">
+              <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect
+                [ngClass]="myAsset !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'"
+                style="font-size:9pt; padding:12px !important;">
                 ASSET
               </button>
               <div class="dropdown-menu dropdown-primary">
-                <a *ngFor="let asset of assetList" class="dropdown-item" href="javascript:void(0);" (click)="myAsset=asset.asset_name; myAssetId=asset.id">
-                      {{asset.asset_name}}
+                <a *ngFor="let asset of assetList" class="dropdown-item" href="javascript:void(0);"
+                  (click)="myAsset=asset.asset_name;myAssetId=asset.id">
+                  {{asset.asset_name}}
                 </a>
               </div>
             </div>
             <div style="padding-top:10px;">{{myAsset}}</div>
           </div>
-          <div class="col-md-2">
+          <div class="col-lg col-md col-sm">
             <div class="btn-group" dropdown>
-              <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myRole !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'">
+              <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect
+                [ngClass]="myRole !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'"
+                style="font-size:9pt; padding:12px !important;">
                 ROLE
               </button>
               <div class="dropdown-menu dropdown-primary">
-                <a *ngFor="let role of roleList" class="dropdown-item" href="javascript:void(0);" (click)="myRole=role.role_name; myRoleId=role.id">
-                    {{role.role_name}}
+                <a *ngFor="let role of roleList" class="dropdown-item" href="javascript:void(0);"
+                  (click)="myRole=role.role_name;myRoleId=role.id">
+                  {{role.role_name}}
                 </a>
               </div>
             </div>
             <div style="padding-top:10px;">{{myRole}}</div>
           </div>
-          <div class="col">
+          <div class="col-lg col-md col-sm">
             <div class="btn-group" dropdown>
-              <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect [ngClass]="myTypes !== '' ? 'btn btn-light-blue' : 'btn       btn-outline-blue-grey'">
+              <button dropdownToggle type="button" class="dropdown-toggle waves-light" mdbWavesEffect
+                [ngClass]="myTypes !== '' ? 'btn btn-light-blue' : 'btn btn-outline-blue-grey'"
+                style="font-size:9pt; padding:12px !important;">
                 TYPE
               </button>
               <div class="dropdown-menu dropdown-primary">
-                <a *ngFor="let types of typesList" class="dropdown-item" href="javascript:void(0);" (click)="myTypes=types.type_name;myTypeId=types.id">
-                    {{types.type_name}}
+                <a *ngFor="let types of typesList" class="dropdown-item" href="javascript:void(0);"
+                  (click)="myTypes=types.type_name;myTypeId=types.id;showContent();">
+                  {{types.type_name}}
                 </a>
               </div>
             </div>
@@ -100,25 +114,75 @@
 
 
   </div>
-  <div class="col-md-3">
-    <div class="card" style="margin-top:100px; padding:40px;" id="mycard1">
-      <h5 class="card-header success-color white-text text-center" style="margin-bottom:40px;">Helpful Resources</h5>
-      <div class="row d-flex justify-content-center">
+  <div class="col-lg-3 col-md-3 col-sm-3" style="margin-top:100px;">
+    <div class="card " id="mycard1">
+      <h6 class="card-header primary-color white-text text-center">Tools & Templates, Intelligence, Resources</h6>
+      <!-- <div class="row"> -->
 
-        <!--Grid column-->
-        <div class="col-md-12" *ngFor="let docs of resourcesList" style="padding: 10px;display:block;">
+      <!--Grid column-->
+      <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 200px; font-weight: bold">Planning Tools
+      </h5>
+      <div *ngFor="let docs of bestPracticeTemplates">
 
-          <p style="overflow-wrap: break-word;">
-            <a href="assets/{{docs.doc_path}}" download="{{docs.doc_name}}" target="_blank" class="e2e-trusted-url">
-              {{docs.doc_name}}
-          </a>
-          </p>
 
-        </div>
-        <!--Grid column-->
+        <a style="overflow-wrap: break-word;margin-left:25px;" href="{{docs.document_link}}" target="_blank"
+          class="e2e-trusted-url">
+          {{docs.document}}
+        </a>
+        <br>
 
       </div>
+      <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 200px; font-weight: bold">Best Practice
+        Templates</h5>
+
+      <div *ngFor="let docs of templatetools">
+        <a style="overflow-wrap: break-word;margin-left:25px;" href="{{docs.document_link}}" target="_blank"
+          class="e2e-trusted-url">
+          {{docs.document}}
+        </a>
+        <br><br>
+      </div>
+      <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 200px; font-weight: bold">Intelligence
+      </h5>
+      <p style="margin-left:15px;">Persona Intelligence</p>
+      <div *ngFor="let docs of personaIntelligenceList">
+
+
+        <a style="overflow-wrap: break-word;margin-left:25px;" href="{{docs.document_link}}" target="_blank"
+          class="e2e-trusted-url">
+          {{docs.document}}
+        </a>
+        <br>
+
+      </div>
+      <hr>
+      <p style="margin-left:15px;">Industry Intelligence</p>
+      <hr>
+      <p style="margin-left:15px;">Competitive Intelligence</p>
+
+      <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 200px; font-weight: bold">Resources</h5>
+
+      <div *ngFor="let docs of resources">
+        <a style="overflow-wrap: break-word;margin-left:25px;" href="{{docs.document_link}}" target="_blank"
+          class="e2e-trusted-url">
+          {{docs.document}}
+        </a>
+        <br>
+      </div>
+      <h5 class="card-header text-center" style="margin-bottom:20px; min-width: 200px; font-weight: bold">Get Content
+        Expertise</h5>
+
+      <div *ngFor="let docs of experticesContent">
+        <a style="overflow-wrap: break-word;margin-left:25px;" href="{{docs.document_link}}" target="_blank"
+          class="e2e-trusted-url">
+          {{docs.document}}
+        </a>
+        <br><br>
+      </div>
+
+      <!--Grid column-->
     </div>
+    <!-- </div> -->
   </div>
 </div>
 
@@ -152,3 +216,5 @@
     </div>
   </div>
 </div>
+
+

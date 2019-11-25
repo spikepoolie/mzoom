@@ -59,11 +59,15 @@ export class ReviewcontentComponent implements OnInit {
   company_name: string;
   docintentArray = [];
   campaignIntent = '';
+  docContentCodesArray = [];
+  docContentCodes = ''
   doc_name: string;
   myCampaign: string;
   myRole: string;
+  myRoleId: number;
   myInitiativeId;
   myTypeId;
+  hasContent = false;
   myTypes = '';
   myInitiative = '';
   myAsset: string;
@@ -71,17 +75,24 @@ export class ReviewcontentComponent implements OnInit {
   resourcesList: any[];
   myType: string;
   docIdJson = [];
+  myIntent: string;
   messagedocid: any;
   contentHelper: string;
   myData: any;
   myDataDoc: any;
+  helpMenuOpen: string;
+  myCampaignId;
+  myAssetId;
+  personaIntelligenceList = [];
+  resources = [];
+  templatetools = [];
 
   private url = 'https://www.goemobile.com/mzoom/php/json.php';
   private campaignUrl = 'mktzoom_get_campaigns_list.php';
   private assetUrl = 'mktzoom_get_assets_list.php';
   private initiativeUrl = 'mktzoom_get_initiatives_list.php';
   private typesUrl = 'mktzoom_get_types_list.php';
-  private documentReviewUrl = 'mktzoom_get_document_reviews_buy_docid.php';
+  private documentReviewUrl = 'mktzoom_get_document_reviews_by_docid.php';
   private roleUrl = 'mtkzoom_get_roles_list.php';
   private docUrl = 'mktzoom_get_doc_by_id.php';
   private resourcesUrl = 'mktzoom_get_resourcess.php';
@@ -106,6 +117,25 @@ export class ReviewcontentComponent implements OnInit {
     } else {
       this.router.navigateByUrl('/dashboard');
     }
+  }
+
+  showContent() {
+    this.hasContent = true;
+    this.myIntent = `${this.myCampaign}|${this.myAsset}|${this.myRole}|${this.myInitiative}|${this.myTypes}`;
+    this.helpMenuOpen = 'in';
+    //const myEntry = `'{"campaign":"${this.myCampaign}","asset":"${this.myAsset}","role":"${this.myRole}","initiative":"${this.myInitiative}","type":"${this.myTypes}",}'`;
+    const myEntry = '{"campaign":"' + this.myCampaignId + '","asset":"' + this.myAssetId + '", "role":"' + this.myRoleId + '", "initiative":"' + this.myInitiativeId + '", "type":"' + this.myTypeId + '"}';
+    this.mktZoomService.getContent(myEntry, this.resourcesUrl).subscribe(response => {
+      if (response.length > 0) {
+        this.contentHelper = response[0].document_content;
+        this.personaIntelligenceList = JSON.parse(response[0].persona_intelligence);
+        this.resources = JSON.parse(response[0].resources);
+        this.templatetools = JSON.parse(response[0].templates_tools);
+        console.log(this.personaIntelligenceList);
+        console.log(this.resources);
+        console.log(this.templatetools);
+      }
+    });
   }
 
   getCampaignsList(): any {
@@ -172,17 +202,24 @@ export class ReviewcontentComponent implements OnInit {
           for (const elements of this.myDataDoc) {
             this.contentHelper = elements.doc_content;
             this.campaignIntent = elements.doc_intent;
+            this.docContentCodes = elements.doc_intent_code;
             this.doc_name = elements.doc_name;
             this.docid = elements.id;
           }
 
           // this.documentsHistory = response;
           this.docintentArray = this.campaignIntent.split('|');
+          this.docContentCodesArray = this.docContentCodes.split('|');
           this.myCampaign = this.docintentArray[0];
+          this.myCampaignId = this.docContentCodesArray[0];
           this.myAsset = this.docintentArray[1];
+          this.myAssetId = this.docContentCodesArray[1];
           this.myRole = this.docintentArray[2];
+          this.myRoleId = this.docContentCodesArray[2];
           this.myInitiative = this.docintentArray[3];
+          this.myInitiativeId = this.docContentCodesArray[3];
           this.myTypes = this.docintentArray[4];
+          this.myTypeId = this.docContentCodesArray[4];
         }
       });
     } else {
